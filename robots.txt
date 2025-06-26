@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alsharqco.netlify.app/sitemap.xml
