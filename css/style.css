@@ -6,6 +6,29 @@
     --dark: #111111;
 }
 
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+
+
 /* Logo Start */
 #logo {
     width: 180px;
@@ -22,6 +45,7 @@
         width: 150px;
     }
 }
+
 /* Logo End */
 
 .fw-medium {
