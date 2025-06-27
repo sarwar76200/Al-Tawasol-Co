@@ -11,6 +11,11 @@
     font-size: 20px;
 }
 
+.font-18 {
+    font-size: 18px;
+}
+
+
 .flex {
     display: flex;
 }
