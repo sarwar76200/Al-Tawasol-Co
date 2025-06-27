@@ -67,33 +67,22 @@
 
 
     <!-- Topbar Start -->
-    <div class="container-fluid bg-light p-0">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>Jleeb-Al Shuyoukh, Kuwait</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center py-3">
-                    <small class="far fa-clock text-primary me-2"></small>
-                    <small>Sat - Thu : 08:00 AM - 10:00 PM</small>
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-                    <small class="fa fa-phone-alt text-primary me-2"></small>
+    <div id="mobile-topbar" class="d-flex d-lg-none mobile-topbar px-4"
+        style="display: flex; justify-content: space-between; align-items: center;">
+        <i id="mobile-topbar-toggler" onclick="closeTopBar()" style="font-size: large;"
+            class="py-0 fa-regular fa-circle-xmark"></i>
+
+        <div style="display: flex; flex-direction: row; align-items: center; column-gap: 10px;">
+            <div>
+                <small>
+                    <i class="fa fa-phone-alt text-primary me-1"></i>
                     <a href="tel:+965 9989 1549">+965 9989 1549</a>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
-                </div>
+                </small>
             </div>
+            <a href="/contact.html#send-message" style="padding: 5px; font-size: small;" class="btn btn-primary">Get A
+                Quote <i class="fa fa-arrow-right ms-1"></i></a>
         </div>
+
     </div>
     <!-- Topbar End -->
 
