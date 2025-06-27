@@ -8,12 +8,12 @@
 
 /* Logo Start */
 #logo {
-    width: 200px;
+    width: 180px;
 }
 
 @media (width <=768px) {
     #logo {
-        width: 170px;
+        width: 160px;
     }
 }
 
