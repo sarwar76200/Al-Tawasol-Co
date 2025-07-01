@@ -154,13 +154,13 @@ function toggleMobileTopbar() {
         desktopTopbar.classList.remove("expanded")
         mobTopTglr.classList.remove("expanded");
 
-        localStorage.setItem("mobile-topbar-state", "collapsed");
+        sessionStorage.setItem("mobile-topbar-state", "collapsed");
     } else {
         mobileTopbar.classList.add("expanded");
         desktopTopbar.classList.add("expanded")
         mobTopTglr.classList.add("expanded");
 
-        localStorage.setItem("mobile-topbar-state", "expanded");
+        sessionStorage.setItem("mobile-topbar-state", "expanded");
     }
 }
 
@@ -189,7 +189,7 @@ function toggleMobileNav() {
 
 
 (function () {
-    const userPreference = localStorage.getItem("mobile-topbar-state");
+    const userPreference = sessionStorage.getItem("mobile-topbar-state");
 
     // console.log("USER:" + userPreference);
 
