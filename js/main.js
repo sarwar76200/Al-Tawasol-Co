@@ -140,29 +140,9 @@ function boka() {
 
 
 
-const mobTopTglr = document.getElementById('topbar-mobile-toggler');
-mobTopTglr.addEventListener('click', toggleMobileTopbar);
+// const mobTopTglr = document.getElementById('topbar-mobile-toggler');
+// mobTopTglr.addEventListener('click', toggleMobileTopbar);
 
-
-
-function toggleMobileTopbar() {
-    const mobileTopbar = document.getElementById('topbar-mobile');
-    const desktopTopbar = document.getElementById('topbar-desktop');
-
-    if (mobTopTglr.classList.contains("expanded")) {
-        mobileTopbar.classList.remove("expanded");
-        desktopTopbar.classList.remove("expanded")
-        mobTopTglr.classList.remove("expanded");
-
-        sessionStorage.setItem("mobile-topbar-state", "collapsed");
-    } else {
-        mobileTopbar.classList.add("expanded");
-        desktopTopbar.classList.add("expanded")
-        mobTopTglr.classList.add("expanded");
-
-        sessionStorage.setItem("mobile-topbar-state", "expanded");
-    }
-}
 
 
 
@@ -188,18 +168,60 @@ function toggleMobileNav() {
 }
 
 
+const chevronContainer = document.getElementById("chevron-button-container");
+chevronContainer.addEventListener('click', chevronFlipper);
+const leftBar = document.getElementById("chevron-left-bar");
+const rightBar = document.getElementById("chevron-right-bar");
+
+function chevronFlipper() {
+    if (leftBar.classList.contains("toggled")) {
+        leftBar.classList.remove("toggled");
+        rightBar.classList.remove("toggled");
+    } else {
+        leftBar.classList.add("toggled");
+        rightBar.classList.add("toggled");
+    }
+    toggleMobileTopbar();
+}
+
+
+
+
+function toggleMobileTopbar() {
+    const mobileTopbar = document.getElementById('topbar-mobile');
+    const desktopTopbar = document.getElementById('topbar-desktop');
+
+    if (!leftBar.classList.contains("toggled")) {
+        mobileTopbar.classList.remove("expanded");
+        desktopTopbar.classList.remove("expanded")
+        // mobTopTglr.classList.remove("expanded");
+
+        console.log("collapsed, left bar: " + leftBar.classList.contains("toggled"))
+
+        sessionStorage.setItem("mobile-topbar-state", "collapsed");
+    } else {
+        console.log("expanded, left bar: " + leftBar.classList.contains("toggled"))
+        mobileTopbar.classList.add("expanded");
+        desktopTopbar.classList.add("expanded")
+        // mobTopTglr.classList.add("expanded");
+
+        sessionStorage.setItem("mobile-topbar-state", "expanded");
+    }
+}
+
+
 (function () {
     const userPreference = sessionStorage.getItem("mobile-topbar-state");
 
-    // console.log("USER:" + userPreference);
+    console.log("USER:" + userPreference);
 
     if (userPreference == "expanded") {
-        if (!mobTopTglr.classList.contains("expanded")) {
-            toggleMobileTopbar();
+        if (!leftBar.classList.contains("toggled")) {
+            chevronFlipper();
         }
     } else {
-        if (mobTopTglr.classList.contains("expanded")) {
-            toggleMobileTopbar();
+        if (leftBar.classList.contains("toggled")) {
+            chevronFlipper();
         }
     }
 

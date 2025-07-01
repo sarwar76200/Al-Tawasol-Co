@@ -12,6 +12,7 @@
 .font-40 {
     font-size: 40px;
 }
+
 .font-20 {
     font-size: 20px;
 }
@@ -623,4 +624,42 @@
         top: 117px;
         transform: translateY(-82px);
     }
+}
+
+
+#chevron-button-container {
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    /* background-color: red; */
+}
+
+#chevron-left-bar,
+#chevron-right-bar {
+    transition: 0.5s;
+    position: relative;
+    height: 2px;
+    width: 24px;
+    background-color: black;
+    transform-origin: 50% 50%;
+}
+
+#chevron-left-bar {
+    transform: translateX(-9px) rotate(-45deg)
+}
+
+#chevron-right-bar {
+    transform: translateX(9px) rotate(45deg)
+}
+
+#chevron-left-bar.toggled {
+    transform: translateX(-9px) rotate(-135deg)
+}
+
+
+#chevron-right-bar.toggled {
+    transform: translateX(9px) rotate(135deg)
 }
