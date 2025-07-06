@@ -648,18 +648,18 @@
 }
 
 #chevron-left-bar {
-    transform: translateX(-9px) rotate(-45deg)
+    transform: translateX(-9px) rotate(-135deg)
 }
 
 #chevron-right-bar {
-    transform: translateX(9px) rotate(45deg)
+    transform: translateX(9px) rotate(135deg)
 }
 
 #chevron-left-bar.toggled {
-    transform: translateX(-9px) rotate(-135deg)
+    transform: translateX(-9px) rotate(-45deg)
 }
 
 
 #chevron-right-bar.toggled {
-    transform: translateX(9px) rotate(135deg)
+    transform: translateX(9px) rotate(45deg)
 }

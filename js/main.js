@@ -89,7 +89,7 @@
         autoplay: true,
         smartSpeed: 1000,
         center: true,
-        margin: 25,
+        margin: 0,
         dots: true,
         loop: true,
         nav: false,
