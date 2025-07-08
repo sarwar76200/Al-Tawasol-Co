@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://altawasol.netlify.app/sitemap.xml
+Sitemap: https://altawasolclean.com/sitemap.xml
