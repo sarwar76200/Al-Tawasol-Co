@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Set index.html as the default file for /
+  DirectoryIndex index.html
+
+  # Redirect /index or /index.html to /
+  RewriteCond %{THE_REQUEST} /index(\.html)? [NC]
+  RewriteRule ^index(\.html)?$ / [R=301,L]
+
+  # Redirect .html URLs to clean versions (for SEO)
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+  RewriteRule ^ %1 [R=301,L]
+
+  # Internally rewrite clean URLs to .html files
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+
+# Serve custom 404 error page
+ErrorDocument 404 /404.html
