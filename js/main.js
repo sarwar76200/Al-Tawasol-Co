@@ -211,7 +211,7 @@ function toggleMobileTopbar() {
 
 
 (function () {
-    const userPreference = sessionStorage.getItem("mobile-topbar-state");
+    const userPreference = sessionStorage.getItem("mobile-topbar-state") || "collapsed";
 
     console.log("USER:" + userPreference);
 
