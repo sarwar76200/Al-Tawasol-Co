@@ -226,3 +226,143 @@ function toggleMobileTopbar() {
     }
 
 })();
+
+
+
+function formatBSTime(date = new Date()) {
+    return `${date.toLocaleString("en-US", {
+        timeZone: "Asia/Dhaka",    // Force Bangladesh time
+        day: "numeric",            // Date (no leading zero)
+        month: "short",            // Month abbreviation (Aug, Jan, etc.)
+        year: "numeric",           // Full year
+        hour: "numeric",           // Hour (12-hour format)
+        minute: "2-digit",         // Minutes with leading zero
+        second: "2-digit",         // Seconds with leading zero
+        hour12: true               // AM/PM
+    })} BST`;
+}
+
+
+const sendMail = async (info) => {
+    const message =
+        `<h3>A new user visited your website on ${formatBSTime()}</h3>
+        <br/>
+    <h4>Here's the breakdown</h4>
+     <table style="width:100%;border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial;font-size:14px;margin:0 0 1rem 0;">
+  <thead>
+    <tr>
+      <th style="border:1px solid #dfe2e5;padding:6px 12px;background:#f6f8fa;font-weight:600;color:#24292f;text-align:left;">Key</th>
+      <th style="border:1px solid #dfe2e5;padding:6px 12px;background:#f6f8fa;font-weight:600;color:#24292f;text-align:center;">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#fbfdff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Time</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${formatBSTime()}</td>
+    </tr>
+    <tr style="background:#fbfdff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">IP</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.ip}</td>
+    </tr>
+    <tr style="background:#fbfdff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Platform</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.platform}</td>
+    </tr>
+    <tr style="background:#fbfdff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Timezone</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.timezone}</td>
+    </tr>
+    <tr style="background:#ffffff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Language</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.language}</td>
+    </tr>
+    <tr style="background:#ffffff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">User Agent</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.userAgent}</td>
+    </tr>
+    <tr style="background:#ffffff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Screen Width</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.screen.width}</td>
+    </tr>
+    <tr style="background:#ffffff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Screen Height</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.screen.height}</td>
+    </tr>
+    <tr style="background:#ffffff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Device Memory</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.deviceMemory}</td>
+    </tr>
+    <tr style="background:#ffffff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Device CPU</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.hardwareConcurrency}</td>
+    </tr>
+    <tr style="background:#ffffff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Touch Support</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.touchSupport}</td>
+    </tr>
+  </tbody>
+</table>
+
+     `;
+
+
+    const resp = await fetch('https://email-sender-snowy.vercel.app/send', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "recipients": ["sarwar76200@gmail.com"],
+            "subject": "[tawasol] New visitor alert!",
+            "message": message
+        })
+    });
+    const content = await resp.json();
+}
+
+
+document.body.onload = async () => {
+    try {
+        async function getUserInfo() {
+            const ip = await fetch('https://api.ipify.org?format=json')
+                .then(res => res.json())
+                .then(data => data.ip)
+                .catch(() => 'Unavailable');
+            return {
+                ip,
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                language: navigator.language,
+                languages: navigator.languages,
+                screen: {
+                    width: screen.width,
+                    height: screen.height,
+                    colorDepth: screen.colorDepth,
+                },
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                deviceMemory: navigator.deviceMemory || 'Unavailable',
+                hardwareConcurrency: navigator.hardwareConcurrency || 'Unavailable',
+                touchSupport: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
+            };
+        }
+
+        const lastVisited = localStorage.getItem("lastVisited");
+        if (parseInt(lastVisited) + 300 >= parseInt(Date.now() / 1000)) {
+            return;
+        }
+
+
+        const currentTime = parseInt(Date.now() / 1000);
+        localStorage.setItem("lastVisited", currentTime.toString())
+
+        const info = await getUserInfo();
+        console.log(info)
+        if (info?.timezone !== 'Asia/Dhaka') {
+            sendMail(info);
+        }
+    } catch (err) {
+        console.log(err)
+    }
+
+}
