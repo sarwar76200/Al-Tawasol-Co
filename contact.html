@@ -2,6 +2,46 @@
 <html lang="en">
 
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-W3VNR7SG');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17437461218"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-17437461218');
+    </script>
+    <!-- Event snippet for Click call conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17437461218/D2-rCMPZhoQbEOKV6vpA',
+                'value': 0.5,
+                'currency': 'USD',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
+
+
+
     <meta charset="utf-8">
     <title>Al-Tawasol Co. - Kuwait's best cleaning solutions</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -39,6 +79,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3VNR7SG" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -65,7 +109,9 @@
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-phone-alt text-secondary me-2"></small>
-                    <a class="text-secondary" href="tel:+965 9777 3983">+965 9777 3983</a>
+                    <a onclick="gtag_report_conversion('tel:+965 9777 3983')" class="text-secondary"
+                        href="tel:+965 9777 3983">+965 9777
+                        3983</a>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a aria-label="Whatsapp account" class="btn btn-sm-square bg-white text-primary me-1"
@@ -92,7 +138,9 @@
                 </div>
                 <div class="">
                     <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small><a class="text-secondary" href="tel:+965 9777 3983">+965 9777 3983</a></small>
+                    <small><a onclick="gtag_report_conversion('tel:+965 9777 3983')" class="text-secondary"
+                            href="tel:+965 9777 3983">+965
+                            9777 3983</a></small>
                 </div>
             </div>
             <!-- toggler and quote -->
@@ -131,6 +179,7 @@
                 <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="service.html" class="nav-item nav-link">Services</a>
                 <a href="client.html" class="nav-item nav-link">Clients</a>
+                <a href="gallery.html" class="nav-item nav-link">Gallery</a>
                 <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu fade-up m-0">
@@ -184,7 +233,8 @@
                                 <h5 class="text-uppercase">Address</h5>
                                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Kuwait
                                 </p>
-                                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+965 9777 3983">+965
+                                <p onclick="gtag_report_conversion('tel:+965 9777 3983')" class="mb-2"><i
+                                        class="fa fa-phone-alt me-3"></i><a href="tel:+965 9777 3983">+965
                                         9989 1549</a></p>
                                 <a href="mailto:support@altawasolclean.com" class="color-inherit mb-2"><i
                                         class="fa fa-envelope me-3"></i>support@altawasolclean.com</a>
