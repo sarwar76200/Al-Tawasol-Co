@@ -25,6 +25,7 @@
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
     <script>
         function gtag_report_conversion(url) {
+            return;
             var callback = function () {
                 if (typeof (url) != 'undefined') {
                     window.location = url;
@@ -233,8 +234,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                 <h5 class="text-uppercase">Address</h5>
                                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Kuwait
                                 </p>
-                                <p onclick="gtag_report_conversion('tel:+965 9777 3983')" class="mb-2"><i
-                                        class="fa fa-phone-alt me-3"></i><a href="tel:+965 9777 3983">+965
+                                <p onclick="gtag_report_conversion('tel:+965 9989 1549')" class="mb-2"><i
+                                        class="fa fa-phone-alt me-3"></i><a href="tel:+965 9989 1549">+965
                                         9989 1549</a></p>
                                 <a href="mailto:support@altawasolclean.com" class="color-inherit mb-2"><i
                                         class="fa fa-envelope me-3"></i>support@altawasolclean.com</a>
@@ -328,7 +329,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Address</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Kuwait</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+965 9777 3983">+965 9777 3983</a>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a
+                            onclick="gtag_report_conversion('tel:+965 9777 3983')" href="tel:+965 9777 3983">+965 9777
+                            3983</a>
                     </p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>support@altawasolclean.com</p>
                     <div class="d-flex pt-2">

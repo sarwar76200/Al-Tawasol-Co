@@ -21,6 +21,29 @@
 
         gtag('config', 'AW-17437461218');
     </script>
+    <!-- Event snippet for Click call conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_conversion(url) {
+            console.log(`
+            GTAG: {
+                url: ${url}
+            }`);
+            return;
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17437461218/D2-rCMPZhoQbEOKV6vpA',
+                'value': 0.5,
+                'currency': 'USD',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
     <meta charset="utf-8">
     <title>Al-Tawasol Co. - Kuwait's best cleaning solutions</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -86,7 +109,7 @@
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-phone-alt text-secondary me-2"></small>
-                    <a class="text-secondary" href="tel:+965 9777 3983">+965 9777 3983</a>
+                    <a onclick="gtag_report_conversion('tel:+965 9777 3983')" class="text-secondary" href="tel:+965 9777 3983">+965 9777 3983</a>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a aria-label="Whatsapp account" class="btn btn-sm-square bg-white text-primary me-1"
@@ -113,7 +136,7 @@
                 </div>
                 <div class="">
                     <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small><a class="text-secondary" href="tel:+965 9777 3983">+965 9777 3983</a></small>
+                    <small><a onclick="gtag_report_conversion('tel:+965 9777 3983')" class="text-secondary" href="tel:+965 9777 3983">+965 9777 3983</a></small>
                 </div>
             </div>
             <!-- toggler and quote -->
@@ -423,7 +446,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Address</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Kuwait</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+965 9777 3983">+965 9777 3983</a>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a onclick="gtag_report_conversion('tel:+965 9777 3983')" href="tel:+965 9777 3983">+965 9777 3983</a>
                     </p>
                     <a href="mailto:support@altawasolclean.com" class="text-white mb-2"><i
                             class="fa fa-envelope me-3"></i>support@altawasolclean.com</a>
