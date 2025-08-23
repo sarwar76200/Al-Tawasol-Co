@@ -26,11 +26,6 @@
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
     <script>
         function gtag_report_conversion(url) {
-            console.log(`
-            GTAG: {
-                url: ${url}
-            }`);
-            return;
             var callback = function () {
                 if (typeof (url) != 'undefined') {
                     window.location = url;
@@ -791,8 +786,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     <a href="mailto:support@altawasolclean.com" class="text-white mb-2"><i
                             class="fa fa-envelope me-3"></i>support@altawasolclean.com</a>
                     <div class="d-flex pt-2">
-                        <a target="_blank"
-                            aria-label="Whatsapp account" class="btn btn-outline-light btn-social"
+                        <a target="_blank" aria-label="Whatsapp account" class="btn btn-outline-light btn-social"
                             href="https://wa.me/+96597773983"><i class="fa-brands fa-whatsapp"></i></a>
                         <a target="_blank" aria-label="Instagram page" class="btn btn-outline-light btn-social"
                             href="https://www.instagram.com/altawasolclean_"><i class="fa-brands fa-instagram"></i></a>
