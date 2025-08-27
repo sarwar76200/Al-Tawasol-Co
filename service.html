@@ -40,7 +40,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         }
     </script>
     <meta charset="utf-8">
-    <title>Al-Tawasol Co. - Kuwait's best cleaning solutions</title>
+    <title>Al-Tawasol Co. - Kuwait's best cleaning service </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta
         content="تنظيف السجاد في مدينة, الكويت خدمة , التنظيف في الكويت Cleaning service in kuwait, Cleaning, تنظيف السجاد , Carpet Cleaning, تنظيف الأريكة , Sofa Cleaning, تنظيف المنزل , Home Cleaning, تنظيف المكاتب , Office Cleaning, Kuwait, تنظيف تواصل , Tawasol, شركة تنظيف , أفضل خدمة تنظيف , خدمة التنظيف بالقرب مني"
@@ -174,6 +174,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <a href="service.html" class="nav-item nav-link active">Services</a>
                 <a href="client.html" class="nav-item nav-link">Clients</a>
                 <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                <a href="blog.html" class="nav-item nav-link">Blog</a>
                 <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu fade-up m-0">
@@ -260,7 +261,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                     <p class="mb-4">We specialize in thorough and reliable home and office cleaning
                                         tailored to your unique space. Whether it's a one-time deep clean or scheduled
                                         maintenance, we ensure spotless environments that enhance comfort and
-                                        productivity.</p>
+                                        productivity, making us the best cleaning service in Kuwait.</p>
                                     <p><i class="fa fa-check text-success me-3"></i>Comprehensive Coverage</p>
                                     <p><i class="fa fa-check text-success me-3"></i>Flexible Scheduling</p>
                                     <p><i class="fa fa-check text-success me-3"></i>Eco-Friendly Solutions</p>
@@ -323,10 +324,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                     <h3 class="mb-3">Deep Carpet Cleaning for a Healthier Home</h3>
                                     <p class="mb-4">Get rid of dirt, bacteria, and allergens from your carpets. We offer
                                         deep cleaning that not only refreshes the appearance but also extends the life
-                                        of your flooring.</p>
+                                        of your flooring. Pick and drop service are available at tawasol.</p>
                                     <p><i class="fa fa-check text-success me-3"></i>Steam & Dry Options</p>
                                     <p><i class="fa fa-check text-success me-3"></i>Deep Stain Treatment</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Fast Drying Techniques</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Pick and Drop Service</p>
                                     <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i
                                             class="fa fa-arrow-right ms-3"></i></a>
                                 </div>
@@ -346,7 +347,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div class="row gx-5">
                 <div class="col-lg-6 py-5">
                     <div class="py-5">
-                        <h1 class="text-white mb-4">Certified Cleaning Experts in Kuwait</h1>
+                        <h2 class="font-40 text-white mb-4">Certified Cleaning Experts in Kuwait</h2>
                         <p class="text-white mb-0">At Al-Tawasol Co., we're proud to be recognized for excellence,
                             integrity, and service in the cleaning industry. With over 27 years of proven experience,
                             numerous industry certifications, and a team of highly skilled professionals, we set the
@@ -357,37 +358,40 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <div class="col-lg-6">
                     <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn"
                         data-wow-delay="0.6s">
-                        <h1 class="text-white mb-4">Discuss with our experts</h1>
-                        <form>
+                        <h2 class="text-white mb-4 font-40">Book for a service</h2>
+                        <form action="https://formspree.io/f/mqabogaj" method="POST">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Name"
+                                    <input name="name" type="text" class="form-control border-0" placeholder="Your Name"
                                         style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email"
-                                        style="height: 55px;">
+                                    <input name="phone" type="text" class="form-control border-0"
+                                        placeholder="Your Phone" style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style="height: 55px;">
+                                    <select name="service" class="form-select border-0" style="height: 55px;">
                                         <option selected>Select A Service</option>
-                                        <option value="1">Service 1</option>
-                                        <option value="2">Service 2</option>
-                                        <option value="3">Service 3</option>
+                                        <option value="Carpet Cleaning">Carpet Cleaning</option>
+                                        <option value="Floor Cleaning">Floor Cleaning</option>
+                                        <option value="Sofa Cleaning">Sofa Cleaning</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text" class="form-control border-0 datetimepicker-input"
+                                        <input name="date" type="text"
+                                            class="form-control border-0 datetimepicker-input"
                                             placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker"
                                             style="height: 55px;">
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control border-0" placeholder="Special Request"></textarea>
+                                    <textarea name="description" class="form-control border-0"
+                                        placeholder="Description"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-secondary w-100 py-3" type="submit">Get a quote</button>
+                                    <button class="btn btn-secondary w-100 py-3" type="submit">Book Order</button>
                                 </div>
                             </div>
                         </form>
