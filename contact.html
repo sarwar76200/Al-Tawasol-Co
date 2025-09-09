@@ -49,7 +49,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         content="تنظيف السجاد في مدينة, الكويت خدمة , التنظيف في الكويت Cleaning service in kuwait, Cleaning, تنظيف السجاد , Carpet Cleaning, تنظيف الأريكة , Sofa Cleaning, تنظيف المنزل , Home Cleaning, تنظيف المكاتب , Office Cleaning, Kuwait, تنظيف تواصل , Tawasol, شركة تنظيف , أفضل خدمة تنظيف , خدمة التنظيف بالقرب مني"
         name="keywords">
     <meta
-        content="Al-Tawasol Co., A Kuwait based professional cleaning service for homes and offices with 27 years of experience. We have an expert team of more than 35 cleaners. We provide the best cleaning service in kuwait. Our services include: Home cleaning, Office cleaning, Carpet cleaning, Sofa cleaning, Floor cleaning and polishing, Sanitization and more. شركة التواصل هي شركة تنظيف منازل ومكاتب احترافية في الكويت، بخبرة 27 عامًا. لدينا فريق يضم أكثر من 35 عامل نظافة. نقدم أفضل خدمات التنظيف في الكويت. تشمل خدماتنا تنظيف المنازل، وتنظيف المكاتب، وتنظيف السجاد، وتنظيف الكنب، وتنظيف وتلميع الأرضيات، والتعقيم، وغيرها الكثير."
+        content="Al-Tawasol Co., A Kuwait based professional cleaning service for homes and offices with 27 years of experience. We have an expert team of more than 35 cleaners. We provide the best cleaning service in kuwait. Our services include: Home cleaning, Office cleaning, Carpet cleaning, Sofa cleaning, Floor cleaning and polishing, Sanitization and more. مركز التواصل هي شركة تنظيف منازل ومكاتب احترافية في الكويت، بخبرة 27 عامًا. لدينا فريق يضم أكثر من 35 عامل نظافة. نقدم أفضل خدمات التنظيف في الكويت. تشمل خدماتنا تنظيف المنازل، وتنظيف المكاتب، وتنظيف السجاد، وتنظيف الكنب، وتنظيف وتلميع الأرضيات، والتعقيم، وغيرها الكثير."
         name="description">
 
 
@@ -74,6 +74,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -177,6 +178,30 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <!-- Lang toggler begin -->
+                <div style="display: flex; align-items: center;" class="language-toggler" id="languageToggler">
+                    <button style="display: flex; flex-direction: row; justify-content: left;"
+                        onclick="toggleLangDropdown()" class="language-btn" id="currentLanguage">
+                        <img src="img/uk.svg" alt="EN" class="flag">
+                        <span>English</span>
+                        <i style=" margin-left: -3px; font-size: 12px;" class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+
+                    <div class="language-dropdown">
+                        <a onclick="setEnglish()" id="lang-en" href="#" class="language-option active" data-lang="en"
+                            data-flag="img/uk.svg" data-text="English">
+                            <img src="img/uk.svg" alt="EN" class="flag">
+                            <span>English</span>
+                        </a>
+                        <a onclick="setArabic()" id="lang-ar" href="#" class="language-option" data-lang="ar"
+                            data-flag="img/kw.svg" data-text="عربي">
+                            <img src="img/kw.svg" alt="KW" class="flag">
+                            <span>عربي</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Lang toggler end -->
                 <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="service.html" class="nav-item nav-link">Services</a>
                 <a href="client.html" class="nav-item nav-link">Clients</a>

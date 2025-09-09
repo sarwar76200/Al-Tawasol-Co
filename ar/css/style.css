@@ -1,4 +1,7 @@
 /********** Template CSS **********/
+
+
+
 :root {
     --primary: #046AFF;
     --secondary: #0B2154;
@@ -8,7 +11,9 @@
     --hamburger_bar_height: 2px;
 }
 
-
+body {
+    font-family: "Cairo";
+}
 .font-40 {
     font-size: 40px;
 }
@@ -86,7 +91,7 @@
 
 /* TOP bar: rotate 45°, move down ~8px (1 gap) */
 #mob-nav1.toggled {
-    transform: translateY(calc(var(--hamburger_row_gap) + var(--hamburger_bar_height))) rotate(45deg);
+    transform: translateY(calc(var(--hamburger_row_gap) + var(--hamburger_bar_height))) rotate(-45deg);
 }
 
 /* MIDDLE bar: fade out */
@@ -96,7 +101,7 @@
 
 /* BOTTOM bar: rotate -45°, move up ~8px (1 gap) */
 #mob-nav3.toggled {
-    transform: translateY(calc(0px - var(--hamburger_row_gap) - var(--hamburger_bar_height))) rotate(-45deg);
+    transform: translateY(calc(0px - var(--hamburger_row_gap) - var(--hamburger_bar_height))) rotate(45deg);
 }
 
 
@@ -130,7 +135,7 @@
 .back-to-top {
     position: fixed;
     display: none;
-    right: 45px;
+    left: 45px;
     bottom: 45px;
     z-index: 99;
 }
@@ -197,15 +202,16 @@
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     vertical-align: middle;
-    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    margin-right: 30px;
-    padding: 20px 0;
+    margin-left: 30px;
+    padding: 25px 0;
     color: #FFFFFF;
-    font-size: 17px;
-    /* text-transform: uppercase; */
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 900;
     outline: none;
 }
 
@@ -216,7 +222,7 @@
 
 @media (max-width: 991.98px) {
     .navbar-light .navbar-nav .nav-link {
-        margin-right: 0;
+        margin-left: 0;
         padding: 10px 0;
     }
 
@@ -263,8 +269,8 @@
 /*** Header ***/
 .carousel-caption {
     top: 0;
-    left: 0;
     right: 0;
+    left: 0;
     bottom: 0;
     background: rgba(0, 0, 0, .7);
     z-index: 1;
@@ -312,7 +318,7 @@
 
 /*** Facts ***/
 .fact {
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/carousel-bg-1.jpg);
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../img/carousel-bg-1.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -336,7 +342,7 @@
 
 /*** Booking ***/
 .booking {
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/carousel-bg-2.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../../img/carousel-bg-2.jpg) center center no-repeat;
     background-size: cover;
 }
 
@@ -431,12 +437,12 @@
 
 /*** Footer ***/
 .footer {
-    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../img/carousel-bg-1.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(../../img/carousel-bg-1.jpg) center center no-repeat;
     background-size: cover;
 }
 
 .footer .btn.btn-social {
-    margin-right: 5px;
+    margin-left: 5px;
     width: 35px;
     height: 35px;
     display: flex;
@@ -456,7 +462,7 @@
     display: block;
     margin-bottom: 5px;
     padding: 0;
-    text-align: left;
+    text-align: right;
     color: #FFFFFF;
     font-size: 15px;
     font-weight: normal;
@@ -466,10 +472,10 @@
 
 .footer .btn.btn-link::before {
     position: relative;
-    content: "\f105";
+    content: "\f104";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .footer .btn.btn-link:hover {
@@ -526,8 +532,8 @@
 }
 
 .px-5px {
-    padding-left: 5px;
     padding-right: 5px;
+    padding-left: 5px;
 }
 
 
@@ -542,18 +548,18 @@
 
 
 .px-10px {
-    padding-left: 10px;
     padding-right: 10px;
+    padding-left: 10px;
 }
 
 .px-16px {
-    padding-left: 16px;
     padding-right: 16px;
+    padding-left: 16px;
 }
 
 .mx-10px {
-    margin-left: 10px;
     margin-right: 10px;
+    margin-left: 10px;
 }
 
 .my-10px {
@@ -562,8 +568,8 @@
 }
 
 .mr-25px {
-    margin-left: 25px;
     margin-right: 25px;
+    margin-left: 25px;
 }
 
 
@@ -580,7 +586,7 @@
 }
 
 #topbar-mobile-toggler.expanded {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
 }
 
 #topbar-mobile {
@@ -649,20 +655,20 @@
 }
 
 #chevron-left-bar {
-    transform: translateX(-9px) rotate(-135deg)
-}
-
-#chevron-right-bar {
     transform: translateX(9px) rotate(135deg)
 }
 
+#chevron-right-bar {
+    transform: translateX(-9px) rotate(-135deg)
+}
+
 #chevron-left-bar.toggled {
-    transform: translateX(-9px) rotate(-45deg)
+    transform: translateX(9px) rotate(45deg)
 }
 
 
 #chevron-right-bar.toggled {
-    transform: translateX(9px) rotate(45deg)
+    transform: translateX(-9px) rotate(-45deg)
 }
 
 
@@ -720,8 +726,6 @@
     }
 }
 
-
-
 /* Gallery Image Grid End */
 
 
@@ -729,7 +733,7 @@
 /* Lang Toggler Begin */
 .language-toggler {
     position: relative;
-    margin-right: 12px;
+    margin-left: 12px;
 }
 
 .language-btn {
@@ -759,7 +763,7 @@
 .language-dropdown {
     position: absolute;
     top: calc(100% + 8px);
-    left: 0;
+    right: 0;
     background: white;
     /* border-radius: 8px; */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -815,7 +819,7 @@
 
 
 .language-toggler.active .language-btn::after {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
 }
 
 /* Lang Toggler End */
@@ -826,32 +830,39 @@
 .blog .blog-item .blog-img {
     position: relative;
     overflow: hidden;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.blog .blog-item .blog-img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    transition: 0.5s;
 }
 
 .blog .blog-item .blog-img img {
     transition: 0.5s;
 }
 
-.blog .blog-item:hover .blog-img img {
-    transform: scale(1.2);
+.blog .blog-item .blog-img:hover img {
+    transform: scale(1.3);
 }
 
-.blog .blog-item .blog-content {
-    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+.blog .blog-item:hover .blog-img::after {
+    background: rgba(21, 185, 217, .5);
 }
 
-.blog .blog-item .blog-content a {
-    transition: 0.5s;
-    font-weight: 500;
-
-}
-
-.blog-content > .blog-subtext  {
-    font-weight: 400;
-    font-size: 16px;
-}
-
-.blog .blog-item:hover .blog-content a:hover {
-    /* color: var(--bs-secondary); */
+.blog .blog-item .blog-centent {
+    background: var(--bs-light);
+    border: 1px solid var(--bs-primary);
+    border-top: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 /*** Blog End ***/
