@@ -1,11 +1,7 @@
-/* body {
-    background: #ccc url("../images/photography.png") repeat;
-    font-family: "Inconsolata", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 1.9;
-    color: #6c757d;
-} */
+body {
+    font-family: 'Lato';
+
+}
 
 
 .blog-wrap {
@@ -370,10 +366,6 @@ textarea.form-control {
     background: #e3e3e3;
 }
 
-.post-entry-sidebar h4 {
-    font-family: 'Lato';
-
-}
 
 
 
@@ -413,39 +405,25 @@ textarea.form-control {
 
 
 
-.blog-entries h1 {
-    font-family: 'Lato';
-}
+
 
 .post-content-body p,
 li {
-    font-family: 'Lato';
     font-size: 18px;
 
 }
 
 .post-content-body h2 {
-    font-family: 'Lato';
     font-size: 28px;
 
 }
 
 .post-content-body h3 {
-    font-family: 'Lato';
     font-size: 23px;
 
 }
 
 .post-content-body h4 {
-    font-family: 'Lato';
     font-size: 21px;
 
-}
-
-.comment-list h1,
-h2,
-h3,
-h4,
-p {
-    font-family: 'Lato';
 }
