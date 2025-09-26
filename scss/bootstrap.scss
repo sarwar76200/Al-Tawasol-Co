@@ -4,6 +4,7 @@ $primary: #046AFF;
 $secondary: #0B2154;
 $light: #F2F2F2;
 $dark: #111111;
+$gray-600: rgb(165, 165, 165);
 
 $font-family-base: 'Ubuntu', sans-serif;
 
@@ -16,6 +17,8 @@ $headings-color: $secondary;
 $headings-font-weight: 700;
 
 $display-font-weight: 700;
+
+$breadcrumb-divider-color: $gray-600;
 
 $enable-responsive-font-sizes: true;
 
