@@ -245,6 +245,7 @@ function formatBSTime(date = new Date()) {
 
 
 async function getUserInfo() {
+    const location = await getLocation();
     const ip = await fetch('https://api.ipify.org?format=json')
         .then(res => res.json())
         .then(data => data.ip)
@@ -252,6 +253,7 @@ async function getUserInfo() {
     return {
         ip,
         userAgent: navigator.userAgent,
+        location: location,
         platform: navigator.platform,
         language: navigator.language,
         languages: navigator.languages,
@@ -266,6 +268,7 @@ async function getUserInfo() {
         touchSupport: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
     };
 }
+
 
 const sendMail = async (info, subject, header) => {
     const message =
@@ -303,6 +306,10 @@ const sendMail = async (info, subject, header) => {
     <tr style="background:#ffffff;">
       <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">User Agent</td>
       <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info.userAgent}</td>
+    </tr>
+    <tr style="background:#ffffff;">
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Location</td>
+      <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:center;">${info?.location}</td>
     </tr>
     <tr style="background:#ffffff;">
       <td style="border:1px solid #dfe2e5;padding:6px 12px;text-align:left;">Screen Width</td>
@@ -346,9 +353,81 @@ const sendMail = async (info, subject, header) => {
 }
 
 
-document.body.onload = async () => {
-    return;
+async function reverseGeocode(lat, lon) {
+    // Build the correct Nominatim reverse geocoding URL
+    const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
 
+    try {
+        // Make the request
+        const response = await fetch(url, {
+            headers: {
+                "User-Agent": "MyGeocodingApp/1.0 (sarwar76200@gmail.com)",
+                "Accept": "application/json"
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+        }
+
+        // Parse JSON response
+        const data = await response.json();
+
+        // Full address
+        // console.log("Full Address:", data.display_name);
+
+        // Individual location parts
+        const city =
+            data.address.city ||
+            data.address.town ||
+            data.address.village ||
+            data.address.county ||
+            "Unknown";
+
+        // console.log("City:", city);
+
+        return data;
+    } catch (error) {
+        console.error("Error:", error.message);
+        return null;
+    }
+}
+
+
+const getLocation = async () => {
+    if (!("geolocation" in navigator)) {
+        console.log("Geolocation is not supported by this browser.");
+        return null;
+    }
+
+    try {
+        // Wrap getCurrentPosition in a Promise
+        const position = await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(
+                resolve,
+                reject,
+                {
+                    enableHighAccuracy: true,
+                    timeout: 5000,
+                    maximumAge: 0
+                }
+            );
+        });
+
+        const { latitude, longitude } = position.coords;
+        // console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+        const data = await reverseGeocode(latitude, longitude);
+
+        return data?.display_name || null;
+
+    } catch (error) {
+        console.error(`Error Code: ${error.code || ""} - ${error.message}`);
+        return null;
+    }
+};
+
+document.body.onload = async () => {
 
     try {
         const lastVisited = localStorage.getItem("lastVisited");
