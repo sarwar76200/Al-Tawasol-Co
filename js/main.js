@@ -243,9 +243,33 @@ function formatBSTime(date = new Date()) {
 }
 
 
-const sendMail = async (info) => {
+async function getUserInfo() {
+    const ip = await fetch('https://api.ipify.org?format=json')
+        .then(res => res.json())
+        .then(data => data.ip)
+        .catch(() => 'Unavailable');
+    return {
+        ip,
+        userAgent: navigator.userAgent,
+        platform: navigator.platform,
+        language: navigator.language,
+        languages: navigator.languages,
+        screen: {
+            width: screen.width,
+            height: screen.height,
+            colorDepth: screen.colorDepth,
+        },
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        deviceMemory: navigator.deviceMemory || 'Unavailable',
+        hardwareConcurrency: navigator.hardwareConcurrency || 'Unavailable',
+        touchSupport: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
+    };
+}
+
+
+const sendMail = async (info, subject, header) => {
     const message =
-        `<h3>A new user visited your website on ${formatBSTime()}</h3>
+        `<h3>${header}</h3>
         <br/>
     <h4>Here's the breakdown</h4>
      <table style="width:100%;border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial;font-size:14px;margin:0 0 1rem 0;">
@@ -314,7 +338,7 @@ const sendMail = async (info) => {
         },
         body: JSON.stringify({
             "recipients": ["sarwar76200@gmail.com"],
-            "subject": "[tawasol] New visitor alert!",
+            "subject": subject,
             "message": message
         })
     });
@@ -323,35 +347,14 @@ const sendMail = async (info) => {
 
 
 document.body.onload = async () => {
-    try {
-        async function getUserInfo() {
-            const ip = await fetch('https://api.ipify.org?format=json')
-                .then(res => res.json())
-                .then(data => data.ip)
-                .catch(() => 'Unavailable');
-            return {
-                ip,
-                userAgent: navigator.userAgent,
-                platform: navigator.platform,
-                language: navigator.language,
-                languages: navigator.languages,
-                screen: {
-                    width: screen.width,
-                    height: screen.height,
-                    colorDepth: screen.colorDepth,
-                },
-                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                deviceMemory: navigator.deviceMemory || 'Unavailable',
-                hardwareConcurrency: navigator.hardwareConcurrency || 'Unavailable',
-                touchSupport: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
-            };
-        }
+    return;
 
+
+    try {
         const lastVisited = localStorage.getItem("lastVisited");
         if (parseInt(lastVisited) + 300 >= parseInt(Date.now() / 1000)) {
             return;
         }
-
 
         const currentTime = parseInt(Date.now() / 1000);
         localStorage.setItem("lastVisited", currentTime.toString())
@@ -359,7 +362,7 @@ document.body.onload = async () => {
         const info = await getUserInfo();
         console.log(info)
         if (info?.timezone !== 'Asia/Dhaka') {
-            sendMail(info);
+            sendMail(info, "[tawasol] New visitor alert!", `A new user visited your website on ${formatBSTime()}`);
         }
     } catch (err) {
         console.log(err)
@@ -376,6 +379,9 @@ const toggleLangDropdown = (remove = false) => {
 }
 
 const setArabic = (redirect = true) => {
+    if (!window.location.pathname.includes("index")) { // fix for now
+        return;
+    }
     localStorage.setItem("lang", 'عربي');
     if (redirect) window.location = (window.location.pathname.includes('/ar') ? '' : '/ar') + window.location.pathname
 
@@ -394,3 +400,42 @@ if (localStorage.getItem("lang") === 'English' && activeLang === 'عربي') {
 }
 
 // Language toggler end
+
+
+
+
+
+// event listeners start
+
+document.querySelectorAll("#action-btn-call, #action-btn-call-2, #action-btn-mobile-call")?.forEach(element => {
+    element?.addEventListener("click", async () => {
+        try {
+            const info = await getUserInfo();
+            sendMail(info, "[tawasol] Phone number clicked!", `A user has clicked your number on ${formatBSTime()}`);
+        } catch (err) {
+            console.log(err)
+        }
+    })
+})
+document.querySelectorAll("#action-btn-whatsapp, #action-btn-whatsapp-2, #action-btn-whatsapp-3")?.forEach(element => {
+    element?.addEventListener("click", async () => {
+        try {
+            const info = await getUserInfo();
+            sendMail(info, "[tawasol] Whatsapp number clicked!", `A user has clicked your number on ${formatBSTime()}`);
+        } catch (err) {
+            console.log(err)
+        }
+    })
+})
+document.querySelectorAll("#action-btn-instagram, #action-btn-instagram-2")?.forEach(element => {
+    element?.addEventListener("click", async () => {
+        try {
+            const info = await getUserInfo();
+            sendMail(info, "[tawasol] Instagram page visited!", `A user has visited your instagram page on ${formatBSTime()}`);
+        } catch (err) {
+            console.log(err)
+        }
+    })
+})
+
+// event listeners end

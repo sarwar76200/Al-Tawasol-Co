@@ -111,16 +111,19 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-phone-alt text-secondary me-2"></small>
-                    <a onclick="gtag_report_conversion('tel:+965 9777 3983')" class="text-secondary"
-                        href="tel:+965 9777 3983">+965 9777
+                    <a id="action-btn-call" onclick="gtag_report_conversion('tel:+965 9777 3983')"
+                        class="text-secondary" href="tel:+965 9777 3983">+965 9777
                         3983</a>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
-                    <a aria-label="Whatsapp account" class="btn btn-sm-square bg-white text-primary me-1"
-                        href="https://wa.me/+96597773983"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a id="action-btn-whatsapp" aria-label="Whatsapp account"
+                        class="btn btn-sm-square bg-white text-primary me-1" href="https://wa.me/+96597773983"><i
+                            class="fa-brands fa-whatsapp"></i></a>
 
-                    <a aria-label="Instagram page" class="btn btn-sm-square bg-white text-primary me-0"
-                        href="https://www.instagram.com/altawasolclean_"><i class="fab fa-instagram"></i></a>
+                    <a id="action-btn-instagram" aria-label="Instagram page"
+                        class="btn btn-sm-square bg-white text-primary me-0"
+                        href="https://www.instagram.com/altawasolclean_" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -140,8 +143,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 </div>
                 <div class="">
                     <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small><a onclick="gtag_report_conversion('tel:+965 9777 3983')" class="text-secondary"
-                            href="tel:+965 9777 3983">+965
+                    <small><a id="action-btn-mobile-call" onclick="gtag_report_conversion('tel:+965 9777 3983')"
+                            class="text-secondary" href="tel:+965 9777 3983">+965
                             9777 3983</a></small>
                 </div>
             </div>
@@ -260,8 +263,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                 <h5 class="text-uppercase">Address</h5>
                                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Kuwait
                                 </p>
-                                <p onclick="gtag_report_conversion('tel:+965 9989 1549')" class="mb-2"><i
-                                        class="fa fa-phone-alt me-3"></i><a href="tel:+965 9989 1549">+965
+                                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a id="action-btn-call-2"
+                                        onclick="gtag_report_conversion('tel:+965 9989 1549')"
+                                        href="tel:+965 9989 1549">+965
                                         9989 1549</a></p>
                                 <a href="mailto:support@altawasolclean.com" class="color-inherit mb-2"><i
                                         class="fa fa-envelope me-3"></i>support@altawasolclean.com</a>
@@ -279,11 +283,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         <div class="col-md-4">
                             <div class="bg-light d-flex flex-column justify-content-center p-4">
                                 <h5 class="text-uppercase">Social</h5>
-                                <a href="https://wa.me/+96597773983" class="mb-2"><i
+                                <a id="action-btn-whatsapp-2" href="https://wa.me/+96597773983" class="mb-2"><i
                                         class="fa-brands fa-whatsapp me-3"></i>+965 9777 3983</a>
-                                <a href="https://wa.me/+96599891549" class="mb-2"><i
+                                <a id="action-btn-whatsapp-3" href="https://wa.me/+96599891549" class="mb-2"><i
                                         class="fa-brands fa-whatsapp me-3"></i>+965 9989 1549</a>
-                                <a href="https://www.instagram.com/altawasolclean_" class="mb-2"><i
+                                <a id="action-btn-instagram-2" target="_blank"
+                                    href="https://www.instagram.com/altawasolclean_" class="mb-2"><i
                                         class="fa-brands fa-instagram me-3"></i>Al-Tawasol Co.</a>
                             </div>
                         </div>
