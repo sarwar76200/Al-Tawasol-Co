@@ -457,9 +457,6 @@ const toggleLangDropdown = (remove = false) => {
 }
 
 const setArabic = (redirect = true) => {
-    if (!window.location.pathname.includes("index")) { // fix for now
-        return;
-    }
     localStorage.setItem("lang", 'عربي');
     if (redirect) window.location = (window.location.pathname.includes('/ar') ? '' : '/ar') + window.location.pathname
 
