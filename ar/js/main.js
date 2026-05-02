@@ -440,7 +440,7 @@ document.body.onload = async () => {
 
         const info = await getUserInfo();
         console.log(info)
-        if (info?.timezone !== 'Asia/Dhaka') {
+        if (info?.timezone === 'Asia/Kuwait' && info?.location !== null) {
             sendMail(info, "[tawasol] New visitor alert!", `A new user visited your website on ${formatBSTime()}`);
         }
     } catch (err) {
