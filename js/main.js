@@ -456,12 +456,12 @@ const toggleLangDropdown = (remove = false) => {
         : document.getElementById('languageToggler').classList.toggle('active');
 }
 
-const setArabic = (redirect = true) => {
+const setArabic = (redirect = false) => {
     localStorage.setItem("lang", 'عربي');
     if (redirect) window.location = (window.location.pathname.includes('/ar') ? '' : '/ar') + window.location.pathname
 
 }
-const setEnglish = (redirect = true) => {
+const setEnglish = (redirect = false) => {
     localStorage.setItem("lang", 'English');
     if (redirect) window.location = window.location.pathname.replaceAll('/ar', '')
 }
